@@ -1,38 +1,40 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
-public class Bomb : MonoBehaviour {
-    public float Range => range;
-    [SerializeField] private float range;
-
-    public List<Bomb> ConnectedBombs => connectedBombs;
-    [SerializeField] private List<Bomb> connectedBombs;
+//[RequireComponent(typeof(SphereCollider))]
+public class Bomb : Explosive {
 
     [SerializeField] private GameObject explosionEffect;
 
-    private void OnTriggerEnter(Collider other) {
-        if(other.TryGetComponent(out Bomb bomb)) {
-            if(connectedBombs.Contains(bomb)) {
-                return;
-            }
-            connectedBombs.Add(bomb);
-        }
-    }
 
-    private void OnTriggerExit(Collider other) {
-        if(other.TryGetComponent(out Bomb bomb)) {
-            if(connectedBombs.Contains(bomb)) {
-                connectedBombs.Remove(bomb);
-                return;
-            }
-        }
-    }
 
     [ContextMenu("Explode")]
-    public void Explode() {
-        Debug.Log("Explosion");
+    public override void Explode(int strenght, Explosive explosiveToRemove = null) {
+        if(connectedExplosives != null) {
+            if(explosiveToRemove != null && connectedExplosives.Contains(explosiveToRemove)) {
+                connectedExplosives.Remove(explosiveToRemove);
+            }
+            StartCoroutine(ExplotionCoroutine(strenght));
+            return;
+        }
         GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 2);
         GameObject.Destroy(gameObject);
     }
+
+
+    public IEnumerator ExplotionCoroutine(int strenght) {
+        foreach(Explosive toExplode in connectedExplosives) {
+            yield return new WaitForSeconds(.4f);
+            if(toExplode == null) {
+                connectedExplosives.Remove(toExplode);
+            } else {
+                toExplode.Explode(strenght+1, this);
+            }
+        }
+        GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 2);
+        GameObject.Destroy(gameObject);
+    }
+
 }

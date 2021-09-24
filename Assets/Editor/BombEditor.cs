@@ -1,19 +1,23 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Bomb))]
-public class NewBehaviourScript : EtienneEditor.Editor<Bomb> {
+[CustomEditor(typeof(Explosive),true)]
+public class ExplosiveEditor : EtienneEditor.Editor<Explosive> {
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy)]
-    private static void DrawHandles(Bomb bomb, GizmoType gizmoType) {
-        Handles.DrawWireArc(bomb.transform.position, Vector3.up, Vector3.forward, 360f, bomb.Range / 2f);
+    private static void DrawHandles(Explosive explosive, GizmoType gizmoType) {
+        Handles.DrawWireArc(explosive.transform.position, Vector3.up, Vector3.forward, 360f, explosive.Range / 2f);
 
-        foreach(var connectedBomb in bomb.ConnectedBombs) {
-            Handles.DrawLine(bomb.transform.position, connectedBomb.transform.position);
+        foreach(Explosive connectedExplosive in explosive.ConnectedExplosives) {
+            if(explosive != null && connectedExplosive != null) {
+                Handles.DrawLine(explosive.transform.position, connectedExplosive.transform.position);
+            }
         }
     }
 
     public override void OnInspectorGUI() {
-        Target.GetComponent<SphereCollider>().radius = Target.Range / 2f;
+        if(Target.TryGetComponent(out SphereCollider sphereCollider)) {
+            sphereCollider.radius = Target.Range / 2f;
+        }
         base.OnInspectorGUI();
     }
 }

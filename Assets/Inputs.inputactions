@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UnBomber",
+                    "name": "Explosion",
                     "type": "Button",
                     "id": "2b257772-9903-405d-a682-cb5a8970ac50",
                     "expectedControlType": "Button",
@@ -153,7 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UnBomber",
+                    "action": "Explosion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
