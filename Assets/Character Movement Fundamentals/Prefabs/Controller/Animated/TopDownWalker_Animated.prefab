@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114d425b3633b8d4d9ce06e9f7e05d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraInputAxis: {fileID: 1857569305758175124, guid: b9f38158d27a900408c0acb607970a41, type: 3}
+  cameraInputAxis: {fileID: 1857569305758175124, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
   invertHorizontalInput: 0
   invertVerticalInput: 0
   mouseInputMultiplier: 0.01
