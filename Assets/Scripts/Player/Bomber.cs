@@ -1,6 +1,9 @@
+using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using DG.Tweening;
 
 public class Bomber : MonoBehaviour {
     [SerializeField] private InputActionReference bomberInput, explosionInput;
@@ -9,7 +12,7 @@ public class Bomber : MonoBehaviour {
     private GameObject currentBomb;
     private Rigidbody currentBombRB;
     private Collider currentBombCollider;
-    [SerializeField] Transform spawnPoint;
+    [SerializeField] private Transform spawnPoint;
 
     private void Awake() {
         bomberInput.action.performed += _ => SpawnBomb();
@@ -45,14 +48,28 @@ public class Bomber : MonoBehaviour {
         currentBombCollider = null;
     }
 
-    void Explosion() {
-        Debug.Log("Explosion");
-        if(connectedBomb==null) {
-            return; 
+    private void Explosion() {
+        if(connectedBomb == null) {
+            return;
         }
-        connectedBomb.Explode(1);
+        List<Explosive> uuu = connectedBomb.Explode(0);
+        uuu = uuu.Distinct().ToList();
+        foreach(Explosive u in uuu) {
+            Debug.Log(u, u);
+            u.DoExplotion();
+        }
         connectedBomb = null;
     }
+
+
+    public IEnumerator Explosions(
+        List<Explosive> explosives) {
+        foreach(Explosive explosive in explosives) {
+            explosive.DoExplotion();
+            yield return new WaitForSeconds(.3f);
+        }
+    }
+
 
     private void OnTriggerStay(Collider other) {
         if(other.TryGetComponent(out Bomb bomb)) {
@@ -76,7 +93,7 @@ public class Bomber : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        if(connectedBomb==null) {
+        if(connectedBomb == null) {
             return;
         }
         Gizmos.DrawLine(transform.position, connectedBomb.transform.position);

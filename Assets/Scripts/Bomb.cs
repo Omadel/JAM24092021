@@ -1,40 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 //[RequireComponent(typeof(SphereCollider))]
 public class Bomb : Explosive {
-
+    [SerializeField] private int strenght = 1;
     [SerializeField] private GameObject explosionEffect;
 
 
-
-    [ContextMenu("Explode")]
-    public override void Explode(int strenght, Explosive explosiveToRemove = null) {
-        if(connectedExplosives != null) {
-            if(explosiveToRemove != null && connectedExplosives.Contains(explosiveToRemove)) {
-                connectedExplosives.Remove(explosiveToRemove);
-            }
-            StartCoroutine(ExplotionCoroutine(strenght));
-            return;
+    public override List<Explosive> Explode(int strenght, Explosive explosiveToRemove = null) {
+        List<Explosive> explosives = new List<Explosive>();
+        explosives.Add(this);
+        foreach(Explosive explosive in connectedExplosives) {
+            explosive.RemoveExplosive(this);
         }
-        GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 2);
-        GameObject.Destroy(gameObject);
-    }
-
-
-    public IEnumerator ExplotionCoroutine(int strenght) {
-        foreach(Explosive toExplode in connectedExplosives) {
-            yield return new WaitForSeconds(.4f);
-            if(toExplode == null) {
-                connectedExplosives.Remove(toExplode);
-            } else {
-                toExplode.Explode(strenght+1, this);
-            }
+        foreach(Explosive explosive in connectedExplosives) {
+            explosives.AddRange(explosive.Explode(strenght + this.strenght));
         }
-        GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 2);
-        GameObject.Destroy(gameObject);
+        return explosives;
     }
-
 }
