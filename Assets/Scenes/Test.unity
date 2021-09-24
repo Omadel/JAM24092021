@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopDownWalker_Animated
       objectReference: {fileID: 0}
+    - target: {fileID: 4013141108241910, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 4202568628783792, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -385,6 +389,18 @@ PrefabInstance:
     - target: {fileID: 4202568628783792, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621708062090784, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9063079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621708062090784, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.42261827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621708062090784, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114459937348963384, guid: 8dfc15a469c11674591a3365edc0fb9a, type: 3}
       propertyPath: cameraSpeed
