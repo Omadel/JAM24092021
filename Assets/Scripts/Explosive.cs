@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class Explosive : MonoBehaviour {
     public float Range => range;
     [SerializeField] protected float range;
+    [SerializeField] private GameObject explosionEffect;
 
     public List<Explosive> ConnectedExplosives => connectedExplosives;
     [SerializeField] protected List<Explosive> connectedExplosives;
@@ -65,6 +66,9 @@ public abstract class Explosive : MonoBehaviour {
     public abstract List<Explosive> Explode(int strenght, Explosive explosiveToRemove = null);
 
     public virtual void DoExplotion() {
+        if(explosionEffect != null) {
+            GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 5);
+        }
         GameObject.Destroy(gameObject);
     }
 }

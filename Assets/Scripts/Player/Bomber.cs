@@ -87,14 +87,14 @@ public class Bomber : MonoBehaviour {
     public IEnumerator Explosions(List<Explosive> explosives) {
         Camera camera = Camera.main;
         float baseZ = camera.transform.localPosition.z;
-        camera.transform.DOLocalMoveZ(baseZ * 1.4f, .4f);
+        camera.transform.DOLocalMoveZ(baseZ * 1.4f, .4f).SetEase(Ease.OutCubic);
         yield return new WaitForSeconds(.4f);
         explosives = explosives.Distinct().ToList();
         foreach(Explosive explosive in explosives) {
             explosive.DoExplotion();
             yield return new WaitForSeconds(.2f);
         }
-        camera.transform.DOLocalMoveZ(baseZ, .2f);
+        camera.transform.DOLocalMoveZ(baseZ, .2f).SetEase(Ease.OutCubic);
     }
 
 
