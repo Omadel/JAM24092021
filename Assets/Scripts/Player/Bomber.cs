@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Bomber : MonoBehaviour {
-    [SerializeField] private InputActionReference bomberInput, explosionInput;
+    [SerializeField] private Button bomberButton, explosionButton;
     [SerializeField] private GameObject spawnPrefab;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Color connectedColor = Color.white;
@@ -19,14 +20,31 @@ public class Bomber : MonoBehaviour {
     private Collider[] currentBombColliders;
 
     private void Awake() {
-        bomberInput.action.performed += _ => SpawnBomb();
-        bomberInput.action.canceled += _ => DropBomb();
-        explosionInput.action.performed += _ => Explosion();
+        if(bomberButton != null) {
+            EventTrigger trigger = bomberButton.gameObject.AddComponent<EventTrigger>();
+            EventTrigger.Entry pointerDown = new EventTrigger.Entry {
+                eventID = EventTriggerType.PointerDown
+            };
+            pointerDown.callback.AddListener(_ => SpawnBomb());
+            trigger.triggers.Add(pointerDown);
+            bomberButton.onClick.AddListener(DropBomb);
+        }
+        if(explosionButton != null) {
+            explosionButton.onClick.AddListener(Explosion);
+        }
     }
 
     private void OnEnable() {
-        bomberInput.action.Enable();
-        explosionInput.action.Enable();
+        if(bomberButton != null) {
+            bomberButton.interactable = true;
+        }
+    }
+
+    private void OnDisable() {
+        if(bomberButton != null) {
+            bomberButton.interactable = false;
+        }
+        explosionButton.interactable = false;
     }
 
     private void SpawnBomb() {
@@ -100,12 +118,14 @@ public class Bomber : MonoBehaviour {
         connectedBombMaterial = connectedBomb.transform.GetChild(2).GetComponent<MeshRenderer>().material;
         baseColor ??= connectedBombMaterial.color;
         connectedBombMaterial.DOColor(connectedColor, .2f);
+        explosionButton.interactable = true;
     }
 
     private void RemoveConnectedBomb() {
         connectedBombMaterial.DOColor(baseColor.Value, .2f);
         connectedBomb = null;
         connectedBombMaterial = null;
+        explosionButton.interactable = false;
     }
 
     private void OnTriggerExit(Collider other) {

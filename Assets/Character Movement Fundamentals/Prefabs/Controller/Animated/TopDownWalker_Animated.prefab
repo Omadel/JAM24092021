@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 299764596}
   m_Layer: 3
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808916610574764}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9be22bce34010f43b12190b15d84b00, type: 3}
   m_Name: 
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808916610574764}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 114d425b3633b8d4d9ce06e9f7e05d79, type: 3}
   m_Name: 
@@ -655,11 +655,11 @@ GameObject:
   - component: {fileID: 136822284802454696}
   - component: {fileID: 114085455189363066}
   - component: {fileID: 54322192538239026}
-  - component: {fileID: 72127174594176768}
   - component: {fileID: 8129317707997851560}
   - component: {fileID: 114313672688428894}
   - component: {fileID: 114742780930391600}
   - component: {fileID: 710428668}
+  - component: {fileID: 2035788479}
   m_Layer: 0
   m_Name: TopDownWalker_Animated
   m_TagString: Untagged
@@ -741,21 +741,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &72127174594176768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823403780643940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a21ac6c34fa7148b915f9dca2f2c68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementInputAxis: {fileID: 1554488599096087676, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
-  jumpInput: {fileID: -7214147260080772540, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
-  sprintInput: {fileID: 7072938235146636733, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
 --- !u!114 &8129317707997851560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,10 +812,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4d3f2b8ff54e0409b7ea9fac022a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomberInput: {fileID: -5237503722706751644, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
-  explosionInput: {fileID: 6779852478432254532, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
+  bomberButton: {fileID: 0}
+  explosionButton: {fileID: 0}
   spawnPrefab: {fileID: 3481514125367155891, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
   spawnPoint: {fileID: 7706572603458003694}
+  connectedColor: {r: 0.42269027, g: 0.8584906, b: 0.09313814, a: 1}
+--- !u!114 &2035788479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823403780643940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b313ad6b0912dd488003b947a00fdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
 --- !u!1 &1851200744785000
 GameObject:
   m_ObjectHideFlags: 0
