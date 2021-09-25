@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 484631759734432762}
   - component: {fileID: 484631759734432763}
   - component: {fileID: 484631759734432764}
+  - component: {fileID: 2886743969510364267}
+  - component: {fileID: 5217952053216993316}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -115,6 +117,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2886743969510364267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484631759734432766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747c22238f39fab488e411e19d671a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 90, y: 0, z: 0}
+--- !u!114 &5217952053216993316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484631759734432766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ed9d1ad04d05249a118022abead385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 0.01
 --- !u!1 &484631760310781621
 GameObject:
   m_ObjectHideFlags: 0

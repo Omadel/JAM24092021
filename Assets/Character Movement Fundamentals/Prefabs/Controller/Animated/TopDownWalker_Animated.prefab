@@ -771,8 +771,8 @@ MonoBehaviour:
   normalSpeed: 7
   sprintSpeed: 14
   airControl: 0.4
-  jumpSpeed: 10
-  jumpDuration: 0.2
+  jumpSpeed: 7
+  jumpDuration: 0
   airFriction: 0.5
   groundFriction: 100
   gravity: 30

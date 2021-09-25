@@ -8,11 +8,15 @@ using UnityEngine.InputSystem;
 public class Bomber : MonoBehaviour {
     [SerializeField] private InputActionReference bomberInput, explosionInput;
     [SerializeField] private GameObject spawnPrefab;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Color connectedColor = Color.white;
+
+    private Color? baseColor = null;
+    private Material connectedBombMaterial;
     private Bomb connectedBomb;
     private GameObject currentBomb;
     private Rigidbody currentBombRB;
-    private Collider currentBombCollider;
-    [SerializeField] private Transform spawnPoint;
+    private Collider[] currentBombColliders;
 
     private void Awake() {
         bomberInput.action.performed += _ => SpawnBomb();
@@ -27,14 +31,16 @@ public class Bomber : MonoBehaviour {
 
     private void SpawnBomb() {
         Debug.Log("Spawn");
-        currentBomb = GameObject.Instantiate(spawnPrefab, transform.position, transform.GetChild(0).rotation, spawnPoint);
-        currentBomb.transform.DOMove(spawnPoint.position, .2f);
+        currentBomb = GameObject.Instantiate(spawnPrefab, transform.position, transform.GetChild(0).rotation, spawnPoint.parent);
+        currentBomb.transform.DOLocalMove(spawnPoint.localPosition, .2f);
         currentBomb.transform.DOScale(0, 0);
-        currentBomb.transform.DOScale(1, .2f);
+        currentBomb.transform.DOScale(1, .2f).SetEase(Ease.OutBounce);
         currentBombRB = currentBomb.GetComponentInChildren<Rigidbody>();
         currentBombRB.isKinematic = true;
-        currentBombCollider = currentBomb.GetComponentInChildren<Collider>();
-        currentBombCollider.enabled = false;
+        currentBombColliders = currentBomb.GetComponentsInChildren<Collider>();
+        foreach(Collider collider in currentBombColliders) {
+            collider.enabled = false;
+        }
     }
 
     private void DropBomb() {
@@ -44,8 +50,11 @@ public class Bomber : MonoBehaviour {
         currentBomb = null;
         currentBombRB.isKinematic = false;
         currentBombRB = null;
-        currentBombCollider.enabled = true;
-        currentBombCollider = null;
+
+        foreach(Collider collider in currentBombColliders) {
+            collider.enabled = true;
+        }
+        currentBombColliders = null;
     }
 
     private void Explosion() {
@@ -74,13 +83,29 @@ public class Bomber : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         if(other.TryGetComponent(out Bomb bomb)) {
             if(connectedBomb == null) {
-                connectedBomb = bomb;
+                SetConnectedBomb(bomb);
             } else {
                 if(Vector3.Distance(transform.position, bomb.transform.position) < Vector3.Distance(transform.position, connectedBomb.transform.position)) {
-                    connectedBomb = bomb;
+                    SetConnectedBomb(bomb);
                 }
             }
         }
+    }
+
+    private void SetConnectedBomb(Bomb bomb) {
+        if(connectedBomb != null) {
+            RemoveConnectedBomb();
+        }
+        connectedBomb = bomb;
+        connectedBombMaterial = connectedBomb.transform.GetChild(2).GetComponent<MeshRenderer>().material;
+        baseColor ??= connectedBombMaterial.color;
+        connectedBombMaterial.DOColor(connectedColor, .2f);
+    }
+
+    private void RemoveConnectedBomb() {
+        connectedBombMaterial.DOColor(baseColor.Value, .2f);
+        connectedBomb = null;
+        connectedBombMaterial = null;
     }
 
     private void OnTriggerExit(Collider other) {
@@ -88,7 +113,7 @@ public class Bomber : MonoBehaviour {
             if(connectedBomb == null) {
                 return;
             }
-            connectedBomb = null;
+            RemoveConnectedBomb();
         }
     }
 

@@ -1,3 +1,4 @@
+using Etienne;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,13 +22,15 @@ public abstract class Explosive : MonoBehaviour {
     protected virtual void Update() {
         connectedExplosives = connectedExplosives.Where(x => x != null).ToList();
         points.Clear();
+        points.Add(transform.position);
         foreach(Explosive connectedExplosive in ConnectedExplosives) {
             if(connectedExplosive != null) {
+                float distance = Vector3.Distance(transform.position, connectedExplosive.transform.position) / 2f;
+                Vector3 direction = transform.position.Direction(connectedExplosive.transform.position).normalized;
+                points.Add(transform.position + direction * distance);
                 points.Add(transform.position);
-                points.Add(connectedExplosive.transform.position);
             }
         }
-        points.Add(transform.position);
         if(points.Count > 1) {
             for(int i = 0; i < points.Count; i++) {
                 points[i] = new Vector3(points[i].x, 0, points[i].z);
@@ -40,6 +43,7 @@ public abstract class Explosive : MonoBehaviour {
 
         }
     }
+
     protected virtual void OnTriggerStay(Collider other) {
         if(other.TryGetComponent(out Explosive explosive)) {
             if(connectedExplosives.Contains(explosive)) {
