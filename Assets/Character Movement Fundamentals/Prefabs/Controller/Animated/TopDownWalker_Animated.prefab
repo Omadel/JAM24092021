@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114d425b3633b8d4d9ce06e9f7e05d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraInputAxis: {fileID: 1857569305758175124, guid: b9f38158d27a900408c0acb607970a41, type: 3}
+  cameraInputAxis: {fileID: 1857569305758175124, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
   invertHorizontalInput: 0
   invertVerticalInput: 0
   mouseInputMultiplier: 0.01
@@ -753,9 +753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a21ac6c34fa7148b915f9dca2f2c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementInputAxis: {fileID: 1554488599096087676, guid: b9f38158d27a900408c0acb607970a41, type: 3}
-  jumpInput: {fileID: -7214147260080772540, guid: b9f38158d27a900408c0acb607970a41, type: 3}
-  sprintInput: {fileID: 7072938235146636733, guid: b9f38158d27a900408c0acb607970a41, type: 3}
+  movementInputAxis: {fileID: 1554488599096087676, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
+  jumpInput: {fileID: -7214147260080772540, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
+  sprintInput: {fileID: 7072938235146636733, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
 --- !u!114 &8129317707997851560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,8 +827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4d3f2b8ff54e0409b7ea9fac022a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomberInput: {fileID: -5237503722706751644, guid: b9f38158d27a900408c0acb607970a41, type: 3}
-  explosionInput: {fileID: 6779852478432254532, guid: b9f38158d27a900408c0acb607970a41, type: 3}
+  bomberInput: {fileID: -5237503722706751644, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
+  explosionInput: {fileID: 6779852478432254532, guid: 64ee96b8789748f4e85b0eaabfebfc9a, type: 3}
   spawnPrefab: {fileID: 3481514125367155891, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
   spawnPoint: {fileID: 7706572603458003694}
 --- !u!1 &1851200744785000

@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Explosive),true)]
+[CustomEditor(typeof(Explosive), true)]
 public class ExplosiveEditor : EtienneEditor.Editor<Explosive> {
     [DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy)]
     private static void DrawHandles(Explosive explosive, GizmoType gizmoType) {
@@ -18,6 +18,7 @@ public class ExplosiveEditor : EtienneEditor.Editor<Explosive> {
         if(Target.TryGetComponent(out SphereCollider sphereCollider)) {
             sphereCollider.radius = Target.Range / 2f;
         }
+        Target.transform.GetChild(2).localScale = 1.07f * Target.Range * Vector3.one;
         base.OnInspectorGUI();
     }
 }
