@@ -79,22 +79,22 @@ public class Bomber : MonoBehaviour {
         if(connectedBomb == null) {
             return;
         }
-        List<Explosive> uuu = connectedBomb.Explode(0);
-        uuu = uuu.Distinct().ToList();
-        foreach(Explosive u in uuu) {
-            Debug.Log(u, u);
-            u.DoExplotion();
-        }
+        StartCoroutine(Explosions(connectedBomb.Explode(0)));
         connectedBomb = null;
     }
 
 
-    public IEnumerator Explosions(
-        List<Explosive> explosives) {
+    public IEnumerator Explosions(List<Explosive> explosives) {
+        Camera camera = Camera.main;
+        float baseZ = camera.transform.localPosition.z;
+        camera.transform.DOLocalMoveZ(baseZ * 1.4f, .4f);
+        yield return new WaitForSeconds(.4f);
+        explosives = explosives.Distinct().ToList();
         foreach(Explosive explosive in explosives) {
             explosive.DoExplotion();
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.2f);
         }
+        camera.transform.DOLocalMoveZ(baseZ, .2f);
     }
 
 
