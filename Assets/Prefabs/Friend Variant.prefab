@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1481473555255039007, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.76
+      objectReference: {fileID: 0}
     - target: {fileID: 1511083975450785008, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 1.5
