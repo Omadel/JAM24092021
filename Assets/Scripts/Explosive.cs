@@ -30,12 +30,14 @@ public abstract class Explosive : MonoBehaviour {
                 float distance = Vector3.Distance(transform.position, connectedExplosive.transform.position) / 2f;
                 Vector3 direction = transform.position.Direction(connectedExplosive.transform.position).normalized;
                 points.Add(transform.position + direction * distance);
-                points.Add(transform.position);
+                if(ConnectedExplosives.Count > 1) {
+                    points.Add(transform.position);
+                }
             }
         }
         if(points.Count > 1) {
             for(int i = 0; i < points.Count; i++) {
-                points[i] = new Vector3(points[i].x, 0, points[i].z);
+                points[i] = new Vector3(points[i].x, 0f, points[i].z);
             }
             lineRenderer.enabled = true;
             lineRenderer.positionCount = points.Count;
@@ -66,11 +68,12 @@ public abstract class Explosive : MonoBehaviour {
 
     public abstract List<Explosive> Explode(int strenght, Explosive explosiveToRemove = null);
 
-    public virtual void DoExplotion() {
+    public virtual int DoExplotion(int strenght) {
         if(explosionEffect != null) {
             GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 5);
         }
         AudioManager.Play(explosionSound);
         GameObject.Destroy(gameObject);
+        return strenght;
     }
 }

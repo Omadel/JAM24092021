@@ -828,6 +828,23 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       spacialBlend: 0
+  dropSound:
+    clip: {fileID: 8300000, guid: faa71a03cc8b05343958930a90754c50, type: 3}
+    parameters:
+      volume: 1
+      pitch: 1
+      loop: 0
+      spacialBlend: 0
+  popCue:
+    clips:
+    - {fileID: 8300000, guid: 317e9111023afd840a4623e0347d3c53, type: 3}
+    - {fileID: 8300000, guid: 547ed4aec37366e46975c5e9319cfe20, type: 3}
+    - {fileID: 8300000, guid: 64520b43168b35a439d3177da270769a, type: 3}
+    parameters:
+      volume: 1
+      pitch: 1
+      loop: 0
+      spacialBlend: 0
 --- !u!114 &2035788479
 MonoBehaviour:
   m_ObjectHideFlags: 0

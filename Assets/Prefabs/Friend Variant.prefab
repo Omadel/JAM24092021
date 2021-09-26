@@ -24,6 +24,7 @@ MonoBehaviour:
   connectedExplosives: []
   lineRenderer: {fileID: 2252289912628730162}
   hp: 3
+  floatingText: {fileID: 5961254817321221181}
 --- !u!1001 &7618283448301358512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34,6 +35,10 @@ PrefabInstance:
     - target: {fileID: 48029723849066513, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481473555255039007, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1511083975450785008, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: ShapeModule.m_Scale.x
@@ -180,3 +185,14 @@ LineRenderer:
   m_CorrespondingSourceObject: {fileID: 8572647867306726530, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
   m_PrefabInstance: {fileID: 7618283448301358512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5961254817321221181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4252301584068374925, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+  m_PrefabInstance: {fileID: 7618283448301358512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

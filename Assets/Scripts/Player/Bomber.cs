@@ -15,7 +15,8 @@ public class Bomber : Etienne.Singleton<Bomber> {
     [SerializeField] private int maxBombCount;
     [SerializeField] private StarManager starManager;
     [SerializeField] private Menu menu;
-    [SerializeField] private Etienne.Sound winSound;
+    [SerializeField] private Etienne.Sound winSound, dropSound;
+    [SerializeField] private Etienne.Cue popCue;
 
     private Color? baseColor = null;
     private Material connectedBombMaterial;
@@ -74,6 +75,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
             }
             currentBombCount--;
             bombCounter.ChangeCounterText(currentBombCount.ToString());
+            Etienne.AudioManager.Play(popCue);
         }
     }
 
@@ -83,7 +85,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
         currentBomb = null;
         currentBombRB.isKinematic = false;
         currentBombRB = null;
-
+        Etienne.AudioManager.Play(dropSound);
         foreach(Collider collider in currentBombColliders) {
             collider.enabled = true;
         }
@@ -111,6 +113,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
         yield return new WaitForSeconds(.4f);
         float zoffset = transform.position.z - camera.transform.position.z;
         explosives = explosives.Distinct().ToList();
+        int strenght = 0;
         foreach(Explosive explosive in explosives) {
             Vector3 newPosition = new Vector3(
                 explosive.transform.position.x,
@@ -118,7 +121,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
                 explosive.transform.position.z - zoffset
                 );
             camera.transform.DOMove(newPosition, .2f).SetEase(Ease.Linear);
-            explosive.DoExplotion();
+            strenght = explosive.DoExplotion(strenght);
             yield return new WaitForSeconds(.3f);
         }
         camera.transform.DOLocalMove(baseLocalPosition, .4f).SetEase(Ease.OutCubic);
