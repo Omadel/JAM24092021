@@ -66,10 +66,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
+  explosionEffect: {fileID: 4246715407705457514, guid: e6282c332d4b9b34f86c64299d1989ad, type: 3}
+  explosionSound:
+    clip: {fileID: 8300000, guid: 43773e5f0bd789d40bc779ff166bf3f3, type: 3}
+    parameters:
+      volume: 0.6
+      pitch: 1
+      loop: 0
+      spacialBlend: 0
   connectedExplosives: []
   lineRenderer: {fileID: 8572647867306726530}
   strenght: 1
-  explosionEffect: {fileID: 517138209031217357, guid: ce1cf85cf2e92004c892b72f15ff1a70, type: 3}
 --- !u!135 &-6249081955604260506
 SphereCollider:
   m_ObjectHideFlags: 0

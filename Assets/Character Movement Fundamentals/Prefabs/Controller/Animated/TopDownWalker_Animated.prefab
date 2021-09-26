@@ -812,11 +812,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4d3f2b8ff54e0409b7ea9fac022a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPersistant: 0
   bomberButton: {fileID: 0}
   explosionButton: {fileID: 0}
   spawnPrefab: {fileID: 3481514125367155891, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
   spawnPoint: {fileID: 7706572603458003694}
   connectedColor: {r: 0.42269027, g: 0.8584906, b: 0.09313814, a: 1}
+  maxBombCount: 12
+  starManager: {fileID: 0}
 --- !u!114 &2035788479
 MonoBehaviour:
   m_ObjectHideFlags: 0

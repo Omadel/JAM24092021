@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: strenght
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 97228849906243636, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 5506548606120539278, guid: b49d4562562c0d9459aca8aaba480a35, type: 3}
+    - target: {fileID: 97228849906243636, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+      propertyPath: explosionSound.clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e67189b927dca804a9a5aae010f0f314, type: 3}
     - target: {fileID: 1511083975450785008, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 2
@@ -146,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 5716373508978447407, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659382301007284788, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8793685713631239402, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
       propertyPath: m_Size.x

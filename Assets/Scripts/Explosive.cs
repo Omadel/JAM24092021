@@ -8,6 +8,7 @@ public abstract class Explosive : MonoBehaviour {
     public float Range => range;
     [SerializeField] protected float range;
     [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private Sound explosionSound;
 
     public List<Explosive> ConnectedExplosives => connectedExplosives;
     [SerializeField] protected List<Explosive> connectedExplosives;
@@ -69,6 +70,7 @@ public abstract class Explosive : MonoBehaviour {
         if(explosionEffect != null) {
             GameObject.Destroy(GameObject.Instantiate(explosionEffect, transform.position, Quaternion.identity), 5);
         }
+        AudioManager.Play(explosionSound);
         GameObject.Destroy(gameObject);
     }
 }

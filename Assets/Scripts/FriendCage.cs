@@ -6,10 +6,13 @@ public class FriendCage : Explosive {
     [SerializeField] private int hp = 3;
     public override List<Explosive> Explode(int strenght, Explosive explosiveToRemove = null) {
         if(strenght >= hp) {
-            //Debug.Log(strenght);
-            //GameObject.Destroy(gameObject);
             return new List<Explosive>() { this };
         }
         return new List<Explosive>();
+    }
+
+    public override void DoExplotion() {
+        Bomber.Instance.SaveAFriend(transform.position);
+        base.DoExplotion();
     }
 }
