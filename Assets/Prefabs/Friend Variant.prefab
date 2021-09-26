@@ -39,6 +39,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 2252289912628730162}
   hp: 3
   floatingText: {fileID: 5961254817321221181}
+  rangeColor: {r: 0.9137255, g: 0.8511909, b: 0.1764706, a: 0.9019608}
 --- !u!1001 &7618283448301358512
 PrefabInstance:
   m_ObjectHideFlags: 0
