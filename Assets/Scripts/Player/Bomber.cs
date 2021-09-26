@@ -27,6 +27,15 @@ public class Bomber : Etienne.Singleton<Bomber> {
     private BombCounter bombCounter;
     private int currentBombCount, friendSavedCount;
 
+    internal void Pickup() {
+        currentBombCount++;
+        bombCounter.ChangeCounterText(currentBombCount.ToString());
+
+        bomberButton.interactable = true;
+        bombCounter.gameObject.SetActive(true);
+        Etienne.AudioManager.Play(popCue);
+    }
+
     protected override void Awake() {
         base.Awake();
         if(bomberButton != null) {
