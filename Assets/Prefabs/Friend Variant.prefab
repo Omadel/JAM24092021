@@ -15,10 +15,10 @@ MonoBehaviour:
   range: 7
   explosionEffect: {fileID: 4246715407705457514, guid: e6282c332d4b9b34f86c64299d1989ad, type: 3}
   explosionSound:
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 91cdf3d4c47ce1144a22c4a77273cb28, type: 3}
     parameters:
-      volume: 0
-      pitch: 0
+      volume: 1
+      pitch: 1
       loop: 0
       spacialBlend: 0
   connectedExplosives: []

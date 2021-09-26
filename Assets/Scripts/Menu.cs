@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour {
     [SerializeField] private GameObject menu;
     [SerializeField] private TMPro.TextMeshProUGUI text;
     [SerializeField] private string[] messages;
-    [SerializeField] private Etienne.Sound starSound;
+    [SerializeField] private Etienne.Sound starSound, applauseSound;
 
     private void Awake() {
         blackFade.DOFade(0, 0);
@@ -25,7 +25,12 @@ public class Menu : MonoBehaviour {
         for(int i = 0; i < friendSavedCount; i++) {
             sequence.Append(stars[i].transform.DOScale(1, .4f)
                 .SetEase(Ease.OutBounce)
-                .OnStart(() => Etienne.AudioManager.Play(starSound)));
+                .OnStart(() => Etienne.AudioManager.Play(starSound))
+                .OnComplete(() => {
+                    if(friendSavedCount >= 3) {
+                        Etienne.AudioManager.Play(applauseSound);
+                    }
+                }));
         }
         text.text = messages[friendSavedCount];
     }

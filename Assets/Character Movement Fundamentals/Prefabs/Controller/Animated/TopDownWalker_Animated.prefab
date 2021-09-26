@@ -820,6 +820,14 @@ MonoBehaviour:
   connectedColor: {r: 0.42269027, g: 0.8584906, b: 0.09313814, a: 1}
   maxBombCount: 12
   starManager: {fileID: 0}
+  menu: {fileID: 0}
+  winSound:
+    clip: {fileID: 8300000, guid: aeb49e2e0ac25d949908e2cd613e8a1a, type: 3}
+    parameters:
+      volume: 0.8
+      pitch: 1
+      loop: 0
+      spacialBlend: 0
 --- !u!114 &2035788479
 MonoBehaviour:
   m_ObjectHideFlags: 0

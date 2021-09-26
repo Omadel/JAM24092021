@@ -1167,6 +1167,13 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       spacialBlend: 0
+  applauseSound:
+    clip: {fileID: 8300000, guid: e20aaf40922ce6d4fa5a088b9fde53bc, type: 3}
+    parameters:
+      volume: 1
+      pitch: 1
+      loop: 0
+      spacialBlend: 0
 --- !u!1 &4465225871792118111
 GameObject:
   m_ObjectHideFlags: 0

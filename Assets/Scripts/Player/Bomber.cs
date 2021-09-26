@@ -15,6 +15,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
     [SerializeField] private int maxBombCount;
     [SerializeField] private StarManager starManager;
     [SerializeField] private Menu menu;
+    [SerializeField] private Etienne.Sound winSound;
 
     private Color? baseColor = null;
     private Material connectedBombMaterial;
@@ -131,6 +132,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
             return;
         }
         menu.Win(friendSavedCount);
+        Etienne.AudioManager.Play(winSound);
     }
 
     private void OnTriggerStay(Collider other) {
