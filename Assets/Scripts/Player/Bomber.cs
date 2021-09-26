@@ -131,7 +131,6 @@ public class Bomber : Etienne.Singleton<Bomber> {
             return;
         }
         menu.Win(friendSavedCount);
-        GameObject.Destroy(this);
     }
 
     private void OnTriggerStay(Collider other) {
