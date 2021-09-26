@@ -126,6 +126,7 @@ MonoBehaviour:
   hp: 3
   floatingText: {fileID: 5961254817321221181}
   rangeColor: {r: 0.9137255, g: 0.8511909, b: 0.1764706, a: 0.9019608}
+  rangeRenderer: {fileID: 1957766019322638997}
 --- !u!1001 &7618283448301358512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,6 +326,11 @@ LineRenderer:
 --- !u!1 &653464512273393598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6964824435238677006, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
+  m_PrefabInstance: {fileID: 7618283448301358512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1957766019322638997 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8255931257564954405, guid: d1a560978361a774ab2c418f1a5cccb9, type: 3}
   m_PrefabInstance: {fileID: 7618283448301358512}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &9022632238908512687 stripped
