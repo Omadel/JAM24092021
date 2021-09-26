@@ -6988,6 +6988,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -8.821
       objectReference: {fileID: 0}
+    - target: {fileID: 1326757744293951993, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0053571593
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326757744293951993, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326757744293951993, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17273284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326757744293951993, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326757744293951993, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 182.924
+      objectReference: {fileID: 0}
     - target: {fileID: 2439309298640582605, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
       propertyPath: m_LocalScale.x
       value: 10.700001
@@ -7003,6 +7023,14 @@ PrefabInstance:
     - target: {fileID: 2491589292272332123, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
       propertyPath: m_Name
       value: GigaBomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817826351392075422, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026850255155679681, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6073004365486299897, guid: 9c46bce98ad02fa469d22a3208270957, type: 3}
       propertyPath: m_RootOrder
