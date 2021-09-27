@@ -10,4 +10,12 @@ public class Animation : MonoBehaviour {
         transform.DOMoveY(transform.localPosition.y + animationHeight, animationDuration / 3)
             .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
+
+    private void OnDisable() {
+        transform.DOComplete();
+    }
+
+    private void OnDestroy() {
+        transform.DOKill();
+    }
 }
