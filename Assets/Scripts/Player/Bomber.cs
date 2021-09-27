@@ -53,6 +53,7 @@ public class Bomber : Etienne.Singleton<Bomber> {
         }
         currentBombCount = maxBombCount;
         bombCounter.ChangeCounterText(currentBombCount.ToString());
+        bomberButton.interactable = true;
     }
 
     private void OnEnable() {

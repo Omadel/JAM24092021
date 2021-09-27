@@ -18,6 +18,7 @@ public class LoadNextScene : MonoBehaviour {
     }
 
     public void DoLoadNextScene() {
+        Bomber.ResetInstance();
         string uuu = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
         if(!string.IsNullOrEmpty(uuu)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
